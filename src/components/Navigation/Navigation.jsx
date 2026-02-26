@@ -7,15 +7,18 @@ function Navigation() {
       <Link className="navigation__logo" to="/">
         NewsExplorer
       </Link>
-      <Link className="navigation__link" to="/">
-        Home
-      </Link>
-      <Link
-        className="navigation__link navigation__link_type_saved"
-        to="/saved-news"
-      >
-        Saved articles
-      </Link>
+      <div className="navigation__links">
+        <Link className="navigation__link" to="/">
+          Home
+        </Link>
+        <Link
+          className="navigation__link navigation__link_type_saved"
+          to="/saved-news"
+        >
+          Saved articles
+        </Link>
+        <button className="navigation__sign-in_btn">Sign in</button>
+      </div>
     </nav>
   );
 }
