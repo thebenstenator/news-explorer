@@ -39,7 +39,13 @@ function ModalWithForm({
             {onRedirect && (
               <p className="modal__redirect">
                 or{" "}
-                <button className="modal__redirect-btn">{redirectText}</button>
+                <button
+                  className="modal__redirect-btn"
+                  type="button"
+                  onClick={onRedirect}
+                >
+                  {redirectText}
+                </button>
               </p>
             )}
           </div>

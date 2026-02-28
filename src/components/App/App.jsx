@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,18 @@ function App() {
     setActiveModal("");
   };
 
+  const handleModalSwitch = (modalName) => {
+    setActiveModal(modalName);
+  };
+
+  const handleLogin = () => {
+    console.log("login");
+  };
+
+  const handleRegister = () => {
+    console.log("register");
+  };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -32,10 +45,16 @@ function App() {
         <Footer />
       </div>
       <LoginModal
-        name="login"
         activeModal={activeModal}
         handleCloseClick={closeModal}
-        // handleLogin={handleLogin}
+        handleModalSwitch={handleModalSwitch}
+        handleLogin={handleLogin}
+      />
+      <RegisterModal
+        activeModal={activeModal}
+        handleCloseClick={closeModal}
+        handleModalSwitch={handleModalSwitch}
+        handleRegister={handleRegister}
       />
     </div>
   );

@@ -1,7 +1,11 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./LoginModal.css";
 
-function LoginModal({ activeModal, handleLogin, handleCloseClick }) {
+function LoginModal({
+  activeModal,
+  handleLogin,
+  handleCloseClick,
+  handleModalSwitch,
+}) {
   const defaultValues = { email: "", password: "" };
 
   function handleSubmit(evt) {
