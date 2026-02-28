@@ -4,7 +4,9 @@ import "./Header.css";
 function Header({ handleSigninClick }) {
   return (
     <header className="header">
-      <Navigation handleSigninClick={handleSigninClick} />
+      <div className="header__content">
+        <Navigation handleSigninClick={handleSigninClick} />
+      </div>
     </header>
   );
 }

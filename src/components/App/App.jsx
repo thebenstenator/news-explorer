@@ -36,8 +36,8 @@ function App() {
 
   return (
     <div className="page">
+      <Header handleSigninClick={handleSigninClick} />
       <div className="page__content">
-        <Header handleSigninClick={handleSigninClick} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/saved-news" element={<SavedNews />} />

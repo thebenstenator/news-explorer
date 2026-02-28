@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation({ handleSigninClick }) {
@@ -8,15 +8,22 @@ function Navigation({ handleSigninClick }) {
         NewsExplorer
       </Link>
       <div className="navigation__links">
-        <Link className="navigation__link" to="/">
+        <NavLink
+          className={({ isActive }) =>
+            `navigation__link ${isActive ? "navigation__link_active" : ""}`
+          }
+          to="/"
+        >
           Home
-        </Link>
-        <Link
-          className="navigation__link navigation__link_type_saved"
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `navigation__link navigation__link_type_saved ${isActive ? "navigation__link_active" : ""}`
+          }
           to="/saved-news"
         >
           Saved articles
-        </Link>
+        </NavLink>
         <button className="navigation__sign-in_btn" onClick={handleSigninClick}>
           Sign in
         </button>
