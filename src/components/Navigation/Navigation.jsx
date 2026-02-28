@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ handleSigninClick }) {
   return (
     <nav className="navigation">
       <Link className="navigation__logo" to="/">
@@ -17,7 +17,9 @@ function Navigation() {
         >
           Saved articles
         </Link>
-        <button className="navigation__sign-in_btn">Sign in</button>
+        <button className="navigation__sign-in_btn" onClick={handleSigninClick}>
+          Sign in
+        </button>
       </div>
     </nav>
   );
