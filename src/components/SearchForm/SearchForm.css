@@ -38,4 +38,13 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;
+  cursor: pointer;
+}
+
+.search-form__button:hover {
+  background-color: #347eff;
+}
+
+.search-form__button:active {
+  background-color: #2a65cc;
 }

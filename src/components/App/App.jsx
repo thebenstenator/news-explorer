@@ -3,6 +3,8 @@ import Main from "../Main/Main";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+      <LoginModal />
     </div>
   );
 }
