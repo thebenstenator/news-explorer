@@ -1,0 +1,32 @@
+export const mockArticles = [
+  {
+    _id: "1",
+    title: "Everyone Needs a Special 'Sit Spot' in Nature",
+    description: "Ever since I read Richard Louv's influential book...",
+    publishedAt: "2026-02-28T20:11:40Z",
+    source: { name: "Treehugger" },
+    urlToImage: "https://someimage.jpg",
+    url: "https://treehugger.com/article",
+    keyword: "Nature",
+  },
+  {
+    _id: "2",
+    title: "Nature makes you better",
+    description: "We all know how good nature can make us feel...",
+    publishedAt: "2026-02-28T20:11:40Z",
+    source: { name: "National Geographic" },
+    urlToImage: "https://someimage.jpg",
+    url: "https://nationalgeographic.com/article",
+    keyword: "Nature",
+  },
+  {
+    _id: "3",
+    title: "Nature is Good",
+    description: "We all know how good nature is...",
+    publishedAt: "2026-02-28T20:11:40Z",
+    source: { name: "National Geographic" },
+    urlToImage: "https://someimage.jpg",
+    url: "https://nationalgeographic.com/article",
+    keyword: "Nature",
+  },
+];
