@@ -2,9 +2,10 @@ import "./NewsCard.css";
 
 function NewsCard({ article }) {
   return (
-    <section className="news-card">
+    <div className="news-card">
+      <button className="news-card__save-btn" type="button"></button>
+      <img src={article.urlToImage} alt="" className="news-card__image" />
       <div className="news-card__content">
-        <img src={article.urlToImage} alt="" className="news-card__image" />
         <p className="news-card__date">
           {new Date(article.publishedAt).toLocaleDateString("en-US", {
             year: "numeric",
@@ -16,7 +17,7 @@ function NewsCard({ article }) {
         <p className="news-card__description">{article.description}</p>
         <p className="news-card__source">{article.source.name}</p>
       </div>
-    </section>
+    </div>
   );
 }
 

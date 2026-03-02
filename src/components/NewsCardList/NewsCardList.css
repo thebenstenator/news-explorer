@@ -1,0 +1,35 @@
+.news-card-list {
+  background-color: #f5f6f7;
+  padding: 80px 104px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-list__title {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.news-card-list__cards {
+  display: flex;
+  gap: 16px;
+  padding: 64px;
+}
+
+.news-card-list__more-btn {
+  width: 288px;
+  height: 64px;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 80px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  vertical-align: middle;
+  align-self: center;
+}
