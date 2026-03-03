@@ -44,7 +44,7 @@ function RegisterModal({
         />
       </label>
       <label htmlFor="register-username" className="modal__label">
-        Password
+        Username
         <input
           type="text"
           name="username"
