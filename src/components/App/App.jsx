@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import RegistrationConfirmation from "../RegistrationConfirmation/RegistrationConfirmation";
 import "./App.css";
 
 function App() {
@@ -55,6 +56,11 @@ function App() {
         handleCloseClick={closeModal}
         handleModalSwitch={handleModalSwitch}
         handleRegister={handleRegister}
+      />
+      <RegistrationConfirmation
+        activeModal={activeModal}
+        handleCloseClick={closeModal}
+        handleModalSwitch={handleModalSwitch}
       />
     </div>
   );

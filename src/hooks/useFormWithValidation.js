@@ -73,7 +73,12 @@ export function useFormWithValidation(defaultValues = {}) {
 
   const handleBlur = (e) => {
     const error = validateField(e.target.name, e.target.value);
-    setErrors((prev) => ({ ...prev, [e.target.name]: error }));
+    const updatedErrors = { ...errors, [e.target.name]: error };
+    setErrors(updatedErrors);
+    const allFieldsValid = Object.keys(defaultValues).every(
+      (key) => !validateField(key, values[key]),
+    );
+    setIsValid(allFieldsValid);
   };
 
   return {

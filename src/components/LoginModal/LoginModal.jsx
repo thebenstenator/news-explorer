@@ -16,7 +16,6 @@ function LoginModal({
     validateForm,
     errors,
     isValid,
-    isSubmitted,
     handleBlur,
   } = useFormWithValidation(defaultValues);
 
@@ -24,8 +23,12 @@ function LoginModal({
     evt.preventDefault();
     const valid = validateForm();
     if (!valid) return;
-    handleLogin(values, handleReset);
+    // handleLogin(values, handleReset);
+    console.log("login values:", values);
+    handleCloseClick();
+    handleReset();
   }
+
   return (
     <ModalWithForm
       name="login"
@@ -51,7 +54,7 @@ function LoginModal({
           onBlur={handleBlur}
         />{" "}
         <span
-          className={`modal__error"
+          className={`modal__error
             ${errors.email ? " modal__error_visible" : ""}`}
         >
           {errors.email}

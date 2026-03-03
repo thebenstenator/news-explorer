@@ -16,7 +16,6 @@ function RegisterModal({
     validateForm,
     errors,
     isValid,
-    isSubmitted,
     handleBlur,
   } = useFormWithValidation(defaultValues);
 
@@ -24,8 +23,11 @@ function RegisterModal({
     evt.preventDefault();
     const valid = validateForm();
     if (!valid) return;
-    handleRegister(values, handleReset);
+    // handleRegister(values, handleReset);
+    handleModalSwitch("confirmation");
+    handleReset();
   }
+
   return (
     <ModalWithForm
       name="register"
