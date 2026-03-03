@@ -49,13 +49,10 @@ export function useFormWithValidation(defaultValues = {}) {
       return next;
     });
 
-    if (isSubmitted) {
-      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
-      setIsValid(
-        Object.values({ ...errors, [name]: validateField(name, value) }).every(
-          (m) => !m,
-        ),
-      );
+    if (errors[name]) {
+      const error = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+      setIsValid(Object.values({ ...errors, [name]: error }).every((m) => !m));
     }
   };
 
@@ -74,6 +71,11 @@ export function useFormWithValidation(defaultValues = {}) {
     [defaultValues],
   );
 
+  const handleBlur = (e) => {
+    const error = validateField(e.target.name, e.target.value);
+    setErrors((prev) => ({ ...prev, [e.target.name]: error }));
+  };
+
   return {
     values,
     handleChange,
@@ -83,5 +85,6 @@ export function useFormWithValidation(defaultValues = {}) {
     isValid,
     validateForm,
     isSubmitted,
+    handleBlur,
   };
 }

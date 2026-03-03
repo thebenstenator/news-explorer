@@ -11,6 +11,7 @@ function ModalWithForm({
   activeModal,
   handleCloseClick,
   onRedirect,
+  isValid,
 }) {
   const { handleOverlayMouseDown } = useModalHandlers(
     activeModal,
@@ -33,7 +34,7 @@ function ModalWithForm({
         <form onSubmit={onSubmit} className="modal__form">
           {children}
           <div className="modal__buttons">
-            <button className="modal__submit" type="submit">
+            <button className="modal__submit" type="submit" disabled={!isValid}>
               {buttonText}
             </button>
             {onRedirect && (

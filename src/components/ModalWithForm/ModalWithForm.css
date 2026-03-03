@@ -66,10 +66,17 @@
   font-size: 18px;
   line-height: 1.3;
   padding: 20px 114px;
-  background-color: #e6e8eb;
+  background-color: #2f71e5;
+  color: #fff;
   margin: auto;
   margin-top: 8px;
   cursor: pointer;
+}
+
+.modal__submit:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: not-allowed;
 }
 
 .modal__redirect {
@@ -106,4 +113,18 @@
   border: none;
   border-bottom: 1px solid #000;
   background-color: transparent;
+}
+
+.modal__error {
+  display: block;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: transparent;
+  margin-top: 3px;
+}
+
+.modal__error_visible {
+  color: #ff0000 !important;
 }

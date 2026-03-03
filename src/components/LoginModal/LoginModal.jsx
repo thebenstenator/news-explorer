@@ -1,4 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 function LoginModal({
   activeModal,
@@ -8,9 +9,22 @@ function LoginModal({
 }) {
   const defaultValues = { email: "", password: "" };
 
+  const {
+    values,
+    handleChange,
+    handleReset,
+    validateForm,
+    errors,
+    isValid,
+    isSubmitted,
+    handleBlur,
+  } = useFormWithValidation(defaultValues);
+
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleLogin();
+    const valid = validateForm();
+    if (!valid) return;
+    handleLogin(values, handleReset);
   }
   return (
     <ModalWithForm
@@ -22,6 +36,7 @@ function LoginModal({
       onSubmit={handleSubmit}
       redirectText="Sign up"
       onRedirect={() => handleModalSwitch("register")}
+      isValid={isValid}
     >
       <label htmlFor="login-email" className="modal__label">
         Email
@@ -31,7 +46,16 @@ function LoginModal({
           className="modal__input"
           id="login-email"
           placeholder="Enter email"
-        />
+          value={values.email || ""}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />{" "}
+        <span
+          className={`modal__error"
+            ${errors.email ? " modal__error_visible" : ""}`}
+        >
+          {errors.email}
+        </span>
       </label>
       <label htmlFor="login-password" className="modal__label">
         Password
@@ -41,7 +65,15 @@ function LoginModal({
           className="modal__input"
           id="login-password"
           placeholder="Enter password"
+          value={values.password || ""}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
+        <span
+          className={`modal__error ${errors.password ? "modal__error_visible" : ""}`}
+        >
+          {errors.password}
+        </span>
       </label>
     </ModalWithForm>
   );
