@@ -65,3 +65,22 @@
     height: 56px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-form__input {
+    max-width: 288px;
+    margin-bottom: 16px;
+  }
+
+  .search-form__button {
+    position: static;
+    width: 288px;
+  }
+}

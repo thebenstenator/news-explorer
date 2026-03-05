@@ -52,3 +52,14 @@
     margin: 0 auto 48px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .hero__title {
+    max-width: 288px;
+  }
+
+  .hero__subtitle {
+    max-width: 288px;
+    margin: 0 auto 122px;
+  }
+}

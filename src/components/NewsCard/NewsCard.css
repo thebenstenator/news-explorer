@@ -115,3 +115,14 @@
     height: 150px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .news-card {
+    width: 288px;
+    height: 420px;
+  }
+
+  .news-card__image {
+    height: 196px;
+  }
+}

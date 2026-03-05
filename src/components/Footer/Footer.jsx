@@ -6,20 +6,23 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__copyright">© 2026 Supersite, Powered by News API</p>
-      <div className="footer__links">
-        <Link to="/" className="footer__link">
-          Home
-        </Link>
-        <a
-          href="https://tripleten.com"
-          target="_blank"
-          rel="noreferrer"
-          className="footer__link"
-        >
-          TripleTen
-        </a>
-
+      <p className="footer__copyright">
+        © {new Date().getFullYear()} Supersite, Powered by News API
+      </p>
+      <div className="footer__nav">
+        <div className="footer__links">
+          <Link to="/" className="footer__link">
+            Home
+          </Link>
+          <a
+            href="https://tripleten.com"
+            target="_blank"
+            rel="noreferrer"
+            className="footer__link"
+          >
+            TripleTen
+          </a>
+        </div>
         <div className="footer__icons">
           <a
             href="https://github.com/thebenstenator"
