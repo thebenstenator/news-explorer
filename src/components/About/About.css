@@ -75,6 +75,7 @@
 
   .about__description {
     margin: 0;
+    max-width: 288px;
   }
 
   .about__title {

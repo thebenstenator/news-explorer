@@ -1,12 +1,18 @@
 import { NavLink, Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ handleSigninClick }) {
+function Navigation({ handleSigninClick, handleMobileTap }) {
   return (
     <nav className="navigation">
       <Link className="navigation__logo" to="/">
         NewsExplorer
       </Link>
+      <button
+        className="navigation__mobile-menu"
+        type="button"
+        onClick={handleMobileTap}
+      ></button>
+
       <div className="navigation__links">
         <NavLink
           className={({ isActive }) =>

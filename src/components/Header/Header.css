@@ -31,3 +31,14 @@
     padding: 0 40px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 56px;
+  }
+
+  .header__content {
+    height: 56px;
+    padding: 16px;
+  }
+}

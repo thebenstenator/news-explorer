@@ -5,6 +5,17 @@
   width: 100%;
 }
 
+.navigation__mobile-menu {
+  background-image: url("../../assets/mobile-menu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+
 .navigation__logo {
   text-decoration: none;
   font-family: "Roboto Slab";
@@ -81,5 +92,19 @@
   }
   .navigation__link_active::after {
     bottom: -21px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation__mobile-menu {
+    display: block;
+  }
+
+  .navigation__links {
+    display: none;
+  }
+
+  .navigation__logo {
+    font-size: 16px;
   }
 }

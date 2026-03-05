@@ -10,6 +10,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationConfirmation from "../RegistrationConfirmation/RegistrationConfirmation";
+import MobileModal from "../MobileModal/MobileModal";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
 
   const handleSigninClick = () => {
     setActiveModal("login");
+  };
+
+  const handleMobileTap = () => {
+    setActiveModal("mobile");
   };
 
   const closeModal = () => {
@@ -37,7 +42,10 @@ function App() {
 
   return (
     <div className="page">
-      <Header handleSigninClick={handleSigninClick} />
+      <Header
+        handleMobileTap={handleMobileTap}
+        handleSigninClick={handleSigninClick}
+      />
       <div className="page__content">
         <Routes>
           <Route path="/" element={<Main />} />
@@ -61,6 +69,11 @@ function App() {
         activeModal={activeModal}
         handleCloseClick={closeModal}
         handleModalSwitch={handleModalSwitch}
+      />
+      <MobileModal
+        activeModal={activeModal}
+        handleSigninClick={handleSigninClick}
+        handleCloseClick={closeModal}
       />
     </div>
   );
