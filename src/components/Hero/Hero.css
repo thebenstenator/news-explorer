@@ -26,6 +26,7 @@
   margin: 80px auto 32px;
   z-index: 2;
   color: #fff;
+  max-width: 608px;
 }
 
 .hero__subtitle {
@@ -36,4 +37,18 @@
   margin: 0 auto 88px;
   z-index: 2;
   color: #fff;
+  max-width: 608px;
+}
+
+@media screen and (max-width: 1064px) {
+  .hero__title {
+    font-size: 36px;
+    max-width: 452px;
+    margin: 38px auto 16px;
+  }
+
+  .hero__subtitle {
+    max-width: 452px;
+    margin: 0 auto 48px;
+  }
 }

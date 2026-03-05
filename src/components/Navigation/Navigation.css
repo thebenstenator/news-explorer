@@ -66,3 +66,20 @@
   vertical-align: middle;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1064px) {
+  .navigation__link {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .navigation__sign-in_btn {
+    width: 152px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .navigation__link_active::after {
+    bottom: -21px;
+  }
+}

@@ -27,6 +27,7 @@
   font-size: 16px;
   line-height: 1.4;
   color: #b6bcbf;
+  margin: 0;
 }
 
 .footer__link {
@@ -42,4 +43,10 @@
 .footer__linkedin {
   width: 24px;
   height: 24px;
+}
+
+@media screen and (max-width: 1064px) {
+  .footer {
+    padding: 20px 40px;
+  }
 }
