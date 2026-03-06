@@ -59,9 +59,6 @@
   z-index: 10;
 }
 
-.navigation__link_type_saved {
-}
-
 .navigation__sign-in_btn {
   width: 176px;
   height: 48px;
@@ -90,6 +87,7 @@
   line-height: 1.3;
   padding: 12px 15px 12px 17px;
   display: flex;
+  cursor: pointer;
 }
 
 .navigation__sign-out-symbol {

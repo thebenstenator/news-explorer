@@ -1,6 +1,6 @@
 // React Imports
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Component Imports
 import Main from "../Main/Main";
@@ -16,6 +16,8 @@ import "./App.css";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSigninClick = () => {
     setActiveModal("login");
@@ -38,6 +40,11 @@ function App() {
     closeModal();
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
   const handleRegister = () => {
     console.log("register");
   };
@@ -49,10 +56,11 @@ function App() {
         handleSigninClick={handleSigninClick}
         activeModal={activeModal}
         isLoggedIn={isLoggedIn}
+        handleLogout={handleLogout}
       />
       <div className="page__content">
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
           <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
         <Footer />

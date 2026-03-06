@@ -1,9 +1,12 @@
 import "./NewsCard.css";
 
-function NewsCard({ article }) {
+function NewsCard({ article, isLoggedIn }) {
   return (
     <div className="news-card">
-      <button className="news-card__save-btn" type="button"></button>
+      <button
+        className={`news-card__save-btn ${!isLoggedIn ? "news-card__save-btn_logged-out" : ""}`}
+        type="button"
+      ></button>
       <img src={article.urlToImage} alt="" className="news-card__image" />
       <div className="news-card__content">
         <p className="news-card__date">

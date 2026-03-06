@@ -6,6 +6,7 @@ function Navigation({
   handleMobileTap,
   activeModal,
   isLoggedIn,
+  handleLogout,
 }) {
   return (
     <nav className="navigation">
@@ -40,9 +41,12 @@ function Navigation({
             >
               Saved articles
             </NavLink>
-            <button className="navigation__sign-out-btn">
-              Elise{" "}
-              <div className="navigation__sign-out-symbol" type="button"></div>
+            <button
+              className="navigation__sign-out-btn"
+              type="button"
+              onClick={handleLogout}
+            >
+              Elise <div className="navigation__sign-out-symbol"></div>
             </button>
           </>
         ) : (

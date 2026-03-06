@@ -1,13 +1,26 @@
+import { useState } from "react";
+
 import About from "../About/About";
 import Hero from "../Hero/Hero";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./Main.css";
 
-function Main() {
+import { mockArticles } from "../../utils/constants";
+
+function Main({ isLoggedIn }) {
+  const [isSearched, setIsSearched] = useState(false);
+  const [articles, setArticles] = useState(mockArticles);
+
+  const onSearch = (e) => {
+    setIsSearched(true);
+  };
+
   return (
     <main>
-      <Hero />
-      <NewsCardList />
+      <Hero onSearch={onSearch} />
+      {isSearched && (
+        <NewsCardList articles={articles} isLoggedIn={isLoggedIn} />
+      )}
       <About />
     </main>
   );

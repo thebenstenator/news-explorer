@@ -6,6 +6,7 @@ function Header({
   handleMobileTap,
   activeModal,
   isLoggedIn,
+  handleLogout,
 }) {
   return (
     <header className="header">
@@ -15,6 +16,7 @@ function Header({
           handleMobileTap={handleMobileTap}
           activeModal={activeModal}
           isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
         />
       </div>
     </header>
