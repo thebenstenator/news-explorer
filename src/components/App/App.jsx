@@ -45,6 +45,7 @@ function App() {
       <Header
         handleMobileTap={handleMobileTap}
         handleSigninClick={handleSigninClick}
+        activeModal={activeModal}
       />
       <div className="page__content">
         <Routes>

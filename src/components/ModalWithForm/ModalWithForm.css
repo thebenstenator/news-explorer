@@ -65,7 +65,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;
-  padding: 20px 114px;
+  padding: 20px auto;
   background-color: #2f71e5;
   color: #fff;
   margin: auto;
@@ -127,4 +127,40 @@
 
 .modal__error_visible {
   color: #ff0000 !important;
+}
+
+@media screen and (max-width: 600px) {
+  .modal__content {
+    position: fixed;
+    top: 56px;
+    height: 100vh;
+    max-width: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .modal__title {
+    margin-bottom: 18px;
+  }
+
+  .modal__label {
+    margin-bottom: 30px;
+  }
+
+  .modal__label:last-child {
+    margin-bottom: 23px;
+  }
+
+  .modal__submit {
+    max-width: 288px;
+    margin: 0 auto;
+  }
+
+  .modal__close {
+    background-image: url("../../assets/modal-close-mobile.svg");
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 16px;
+  }
 }
