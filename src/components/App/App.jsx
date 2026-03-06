@@ -15,6 +15,7 @@ import "./App.css";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSigninClick = () => {
     setActiveModal("login");
@@ -33,7 +34,8 @@ function App() {
   };
 
   const handleLogin = () => {
-    console.log("login");
+    setIsLoggedIn(true);
+    closeModal();
   };
 
   const handleRegister = () => {
@@ -46,6 +48,7 @@ function App() {
         handleMobileTap={handleMobileTap}
         handleSigninClick={handleSigninClick}
         activeModal={activeModal}
+        isLoggedIn={isLoggedIn}
       />
       <div className="page__content">
         <Routes>

@@ -1,7 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ handleSigninClick, handleMobileTap, activeModal }) {
+function Navigation({
+  handleSigninClick,
+  handleMobileTap,
+  activeModal,
+  isLoggedIn,
+}) {
   return (
     <nav className="navigation">
       <Link className="navigation__logo" to="/">
@@ -25,17 +30,29 @@ function Navigation({ handleSigninClick, handleMobileTap, activeModal }) {
         >
           Home
         </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            `navigation__link navigation__link_type_saved ${isActive ? "navigation__link_active" : ""}`
-          }
-          to="/saved-news"
-        >
-          Saved articles
-        </NavLink>
-        <button className="navigation__sign-in_btn" onClick={handleSigninClick}>
-          Sign in
-        </button>
+        {isLoggedIn ? (
+          <>
+            <NavLink
+              className={({ isActive }) =>
+                `navigation__link navigation__link_type_saved ${isActive ? "navigation__link_active" : ""}`
+              }
+              to="/saved-news"
+            >
+              Saved articles
+            </NavLink>
+            <button className="navigation__sign-out-btn">
+              Elise{" "}
+              <div className="navigation__sign-out-symbol" type="button"></div>
+            </button>
+          </>
+        ) : (
+          <button
+            className="navigation__sign-in_btn"
+            onClick={handleSigninClick}
+          >
+            Sign in
+          </button>
+        )}
       </div>
     </nav>
   );
