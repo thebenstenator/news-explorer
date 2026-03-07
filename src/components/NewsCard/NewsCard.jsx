@@ -1,13 +1,39 @@
+import { useState } from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn }) {
+function NewsCard({ article, isLoggedIn, isSavedPage }) {
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleSave = () => {
+    if (!isLoggedIn) return;
+    setIsSaved(!isSaved);
+  };
+
   return (
     <div className="news-card">
-      <button
-        className={`news-card__save-btn ${!isLoggedIn ? "news-card__save-btn_logged-out" : ""}`}
-        type="button"
-      ></button>
-      <img src={article.urlToImage} alt="" className="news-card__image" />
+      {isSavedPage ? (
+        <>
+          <button className="news-card__delete-btn" type="button" />
+          <div className="news-card__keyword">{article.keyword}</div>
+        </>
+      ) : isLoggedIn ? (
+        <button
+          className={`news-card__save-btn ${isSaved ? "news-card__save-btn_saved" : ""}`}
+          type="button"
+          onClick={handleSave}
+        />
+      ) : (
+        <button
+          className="news-card__save-btn news-card__save-btn_logged-out"
+          type="button"
+        />
+      )}
+
+      <img
+        src={article.urlToImage}
+        alt={article.title}
+        className="news-card__image"
+      />
       <div className="news-card__content">
         <p className="news-card__date">
           {new Date(article.publishedAt).toLocaleDateString("en-US", {

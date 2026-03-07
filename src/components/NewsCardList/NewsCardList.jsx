@@ -2,7 +2,7 @@ import { mockArticles } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 
-function NewsCardList({ isLoggedIn }) {
+function NewsCardList({ isLoggedIn, isSavedPage }) {
   return (
     <section className="news-card-list">
       <h3 className="news-card-list__title">Search Results</h3>
@@ -12,6 +12,7 @@ function NewsCardList({ isLoggedIn }) {
             key={article._id}
             article={article}
             isLoggedIn={isLoggedIn}
+            isSavedPage={isSavedPage}
           />
         ))}
       </div>

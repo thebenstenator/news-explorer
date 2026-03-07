@@ -19,7 +19,12 @@ function Main({ isLoggedIn }) {
     <main>
       <Hero onSearch={onSearch} />
       {isSearched && (
-        <NewsCardList articles={articles} isLoggedIn={isLoggedIn} />
+        <NewsCardList
+          key={isLoggedIn}
+          articles={articles}
+          isLoggedIn={isLoggedIn}
+          isSavedPage={false}
+        />
       )}
       <About />
     </main>

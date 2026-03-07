@@ -15,7 +15,7 @@ function SavedNews() {
         </p>
       </div>
       <div className="saved-news__articles">
-        <NewsCardList />
+        <NewsCardList isSavedPage={true} />
       </div>
     </section>
   );
