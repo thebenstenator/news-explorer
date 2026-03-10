@@ -15,6 +15,7 @@ import "./App.css";
 
 // Utility imports
 import * as api from "../../utils/api";
+import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -85,67 +86,71 @@ function App() {
   };
 
   return (
-    <div className="page">
-      <Header
-        handleMobileTap={handleMobileTap}
-        handleSigninClick={handleSigninClick}
-        activeModal={activeModal}
-        isLoggedIn={isLoggedIn}
-        handleLogout={handleLogout}
-      />
-      <div className="page__content">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                isLoggedIn={isLoggedIn}
-                articles={articles}
-                handleSearch={handleSearch}
-                isSearched={isSearched}
-                isLoading={isLoading}
-                handleSaveArticle={handleSaveArticle}
-                handleDeleteArticle={handleDeleteArticle}
-                savedArticles={savedArticles}
-              />
-            }
-          />
-          <Route
-            path="/saved-news"
-            element={
-              <SavedNews
-                savedArticles={savedArticles}
-                handleDeleteArticle={handleDeleteArticle}
-                isLoggedIn={isLoggedIn}
-              />
-            }
-          />
-        </Routes>
-        <Footer />
+    <SavedArticlesContext.Provider
+      value={{ savedArticles, handleDeleteArticle, handleSaveArticle }}
+    >
+      <div className="page">
+        <Header
+          handleMobileTap={handleMobileTap}
+          handleSigninClick={handleSigninClick}
+          activeModal={activeModal}
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        />
+        <div className="page__content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  isLoggedIn={isLoggedIn}
+                  articles={articles}
+                  handleSearch={handleSearch}
+                  isSearched={isSearched}
+                  isLoading={isLoading}
+                  handleSaveArticle={handleSaveArticle}
+                  handleDeleteArticle={handleDeleteArticle}
+                  savedArticles={savedArticles}
+                />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <SavedNews
+                  savedArticles={savedArticles}
+                  handleDeleteArticle={handleDeleteArticle}
+                  isLoggedIn={isLoggedIn}
+                />
+              }
+            />
+          </Routes>
+          <Footer />
+        </div>
+        <LoginModal
+          activeModal={activeModal}
+          handleCloseClick={closeModal}
+          handleModalSwitch={handleModalSwitch}
+          handleLogin={handleLogin}
+        />
+        <RegisterModal
+          activeModal={activeModal}
+          handleCloseClick={closeModal}
+          handleModalSwitch={handleModalSwitch}
+          handleRegister={handleRegister}
+        />
+        <RegistrationConfirmation
+          activeModal={activeModal}
+          handleCloseClick={closeModal}
+          handleModalSwitch={handleModalSwitch}
+        />
+        <MobileModal
+          activeModal={activeModal}
+          handleSigninClick={handleSigninClick}
+          handleCloseClick={closeModal}
+        />
       </div>
-      <LoginModal
-        activeModal={activeModal}
-        handleCloseClick={closeModal}
-        handleModalSwitch={handleModalSwitch}
-        handleLogin={handleLogin}
-      />
-      <RegisterModal
-        activeModal={activeModal}
-        handleCloseClick={closeModal}
-        handleModalSwitch={handleModalSwitch}
-        handleRegister={handleRegister}
-      />
-      <RegistrationConfirmation
-        activeModal={activeModal}
-        handleCloseClick={closeModal}
-        handleModalSwitch={handleModalSwitch}
-      />
-      <MobileModal
-        activeModal={activeModal}
-        handleSigninClick={handleSigninClick}
-        handleCloseClick={closeModal}
-      />
-    </div>
+    </SavedArticlesContext.Provider>
   );
 }
 

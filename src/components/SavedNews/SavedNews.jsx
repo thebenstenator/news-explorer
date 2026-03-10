@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./SavedNews.css";
 
-function SavedNews({ savedArticles, isLoggedIn, handleDeleteArticle }) {
+function SavedNews({ isLoggedIn }) {
+  const { savedArticles } = useContext(SavedArticlesContext);
   return (
     <section className="saved-news">
       <div className="saved-news__header">
@@ -19,8 +22,6 @@ function SavedNews({ savedArticles, isLoggedIn, handleDeleteArticle }) {
           isSavedPage={true}
           articles={savedArticles}
           isLoggedIn={isLoggedIn}
-          handleDeleteArticle={handleDeleteArticle}
-          savedArticles={savedArticles}
         />
       </div>
     </section>

@@ -5,16 +5,7 @@ import Preloader from "../Preloader/Preloader";
 import NoResults from "../NoResults/NoResults";
 import "./Main.css";
 
-function Main({
-  isLoggedIn,
-  articles,
-  isSearched,
-  handleSearch,
-  isLoading,
-  handleSaveArticle,
-  handleDeleteArticle,
-  savedArticles,
-}) {
+function Main({ isLoggedIn, articles, isSearched, handleSearch, isLoading }) {
   return (
     <main>
       <Hero handleSearch={handleSearch} />
@@ -26,9 +17,6 @@ function Main({
           articles={articles}
           isLoggedIn={isLoggedIn}
           isSavedPage={false}
-          handleSaveArticle={handleSaveArticle}
-          handleDeleteArticle={handleDeleteArticle}
-          savedArticles={savedArticles}
         />
       )}
       <About />

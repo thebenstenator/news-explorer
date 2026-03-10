@@ -1,13 +1,11 @@
+import { useContext } from "react";
+import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
 import "./NewsCard.css";
 
-function NewsCard({
-  article,
-  isLoggedIn,
-  isSavedPage,
-  savedArticles,
-  handleSaveArticle,
-  handleDeleteArticle,
-}) {
+function NewsCard({ article, isLoggedIn, isSavedPage }) {
+  const { savedArticles, handleDeleteArticle, handleSaveArticle } =
+    useContext(SavedArticlesContext);
+
   const isSaved = savedArticles.some((saved) => saved.url === article.url);
 
   const handleSave = () => {
@@ -23,7 +21,11 @@ function NewsCard({
     <div className="news-card">
       {isSavedPage ? (
         <>
-          <button className="news-card__delete-btn" type="button" />
+          <button
+            className="news-card__delete-btn"
+            type="button"
+            onClick={() => handleDeleteArticle(article)}
+          />
           <div className="news-card__keyword">{article.keyword}</div>
         </>
       ) : isLoggedIn ? (

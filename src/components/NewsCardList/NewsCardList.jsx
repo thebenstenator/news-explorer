@@ -1,33 +1,31 @@
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 
-function NewsCardList({
-  isLoggedIn,
-  isSavedPage,
-  articles,
-  handleDeleteArticle,
-  handleSaveArticle,
-  savedArticles,
-}) {
+function NewsCardList({ isLoggedIn, isSavedPage, articles }) {
   return (
-    <section className="news-card-list">
-      <h3 className="news-card-list__title">Search Results</h3>
-      <div className="news-card-list__cards">
+    <section
+      className={`news-card-list ${isSavedPage ? "news-card-list_saved" : ""}`}
+    >
+      {!isSavedPage && (
+        <h3 className="news-card-list__title">Search Results</h3>
+      )}
+      <div
+        className={`news-card-list__cards ${isSavedPage ? "news-card-list__cards_saved" : ""}`}
+      >
         {articles.map((article) => (
           <NewsCard
             key={article.url}
             article={article}
             isLoggedIn={isLoggedIn}
             isSavedPage={isSavedPage}
-            handleSaveArticle={handleSaveArticle}
-            handleDeleteArticle={handleDeleteArticle}
-            savedArticles={savedArticles}
           />
         ))}
       </div>
-      <button className="news-card-list__more-btn" type="button">
-        Show more
-      </button>
+      {!isSavedPage && (
+        <button className="news-card-list__more-btn" type="button">
+          Show more
+        </button>
+      )}
     </section>
   );
 }

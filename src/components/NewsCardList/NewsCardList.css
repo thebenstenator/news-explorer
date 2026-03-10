@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.news-card-list_saved {
+  padding: 62px 102px;
+}
+
 .news-card-list__title {
   font-family: "Roboto Slab";
   font-weight: 400;
@@ -18,6 +22,10 @@
   gap: 16px;
   padding: 64px 0;
   flex-wrap: wrap;
+}
+
+.news-card-list__cards {
+  padding: 0;
 }
 
 .news-card-list__more-btn {
