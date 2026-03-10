@@ -1,12 +1,22 @@
-import { useState } from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn, isSavedPage }) {
-  const [isSaved, setIsSaved] = useState(false);
+function NewsCard({
+  article,
+  isLoggedIn,
+  isSavedPage,
+  savedArticles,
+  handleSaveArticle,
+  handleDeleteArticle,
+}) {
+  const isSaved = savedArticles.some((saved) => saved.url === article.url);
 
   const handleSave = () => {
     if (!isLoggedIn) return;
-    setIsSaved(!isSaved);
+    if (isSaved) {
+      handleDeleteArticle(article);
+    } else {
+      handleSaveArticle(article);
+    }
   };
 
   return (

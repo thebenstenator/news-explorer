@@ -1,7 +1,12 @@
 import "./Preloader.css";
 
 function Preloader() {
-  return <div className="circle-preloader">Searching for news...</div>;
+  return (
+    <section className="preloader">
+      <div className="preloader__circle"></div>
+      <p className="preloader__text">Searching for news...</p>
+    </section>
+  );
 }
 
 export default Preloader;

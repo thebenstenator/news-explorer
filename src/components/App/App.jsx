@@ -23,6 +23,7 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const [searchError, setSearchError] = useState(null);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   const navigate = useNavigate();
 
@@ -73,6 +74,16 @@ function App() {
       });
   };
 
+  const handleSaveArticle = (article) => {
+    setSavedArticles((prev) => [...prev, article]);
+  };
+
+  const handleDeleteArticle = (article) => {
+    setSavedArticles((prev) =>
+      prev.filter((saved) => saved.url !== article.url),
+    );
+  };
+
   return (
     <div className="page">
       <Header
@@ -93,10 +104,22 @@ function App() {
                 handleSearch={handleSearch}
                 isSearched={isSearched}
                 isLoading={isLoading}
+                handleSaveArticle={handleSaveArticle}
+                handleDeleteArticle={handleDeleteArticle}
+                savedArticles={savedArticles}
               />
             }
           />
-          <Route path="/saved-news" element={<SavedNews />} />
+          <Route
+            path="/saved-news"
+            element={
+              <SavedNews
+                savedArticles={savedArticles}
+                handleDeleteArticle={handleDeleteArticle}
+                isLoggedIn={isLoggedIn}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </div>

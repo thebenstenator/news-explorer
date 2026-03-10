@@ -1,7 +1,7 @@
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./SavedNews.css";
 
-function SavedNews() {
+function SavedNews({ savedArticles, isLoggedIn, handleDeleteArticle }) {
   return (
     <section className="saved-news">
       <div className="saved-news__header">
@@ -15,7 +15,13 @@ function SavedNews() {
         </p>
       </div>
       <div className="saved-news__articles">
-        <NewsCardList isSavedPage={true} />
+        <NewsCardList
+          isSavedPage={true}
+          articles={savedArticles}
+          isLoggedIn={isLoggedIn}
+          handleDeleteArticle={handleDeleteArticle}
+          savedArticles={savedArticles}
+        />
       </div>
     </section>
   );
