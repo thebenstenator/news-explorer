@@ -1,15 +1,14 @@
-import { mockArticles } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 
-function NewsCardList({ isLoggedIn, isSavedPage }) {
+function NewsCardList({ isLoggedIn, isSavedPage, articles }) {
   return (
     <section className="news-card-list">
       <h3 className="news-card-list__title">Search Results</h3>
       <div className="news-card-list__cards">
-        {mockArticles.map((article) => (
+        {articles.map((article) => (
           <NewsCard
-            key={article._id}
+            key={article.url}
             article={article}
             isLoggedIn={isLoggedIn}
             isSavedPage={isSavedPage}

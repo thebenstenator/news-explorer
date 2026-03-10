@@ -1,24 +1,17 @@
-import { useState } from "react";
-
 import About from "../About/About";
 import Hero from "../Hero/Hero";
 import NewsCardList from "../NewsCardList/NewsCardList";
+import Preloader from "../Preloader/Preloader";
+import NoResults from "../NoResults/NoResults";
 import "./Main.css";
 
-import { mockArticles } from "../../utils/constants";
-
-function Main({ isLoggedIn }) {
-  const [isSearched, setIsSearched] = useState(false);
-  const [articles, setArticles] = useState(mockArticles);
-
-  const onSearch = (e) => {
-    setIsSearched(true);
-  };
-
+function Main({ isLoggedIn, articles, isSearched, handleSearch, isLoading }) {
   return (
     <main>
-      <Hero onSearch={onSearch} />
-      {isSearched && (
+      <Hero handleSearch={handleSearch} />
+      {isLoading && <Preloader />}
+      {!isLoading && isSearched && articles.length === 0 && <NoResults />}
+      {!isLoading && isSearched && articles.length > 0 && (
         <NewsCardList
           key={isLoggedIn}
           articles={articles}

@@ -13,9 +13,16 @@ import RegistrationConfirmation from "../RegistrationConfirmation/RegistrationCo
 import MobileModal from "../MobileModal/MobileModal";
 import "./App.css";
 
+// Utility imports
+import * as api from "../../utils/api";
+
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [articles, setArticles] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
+  const [searchError, setSearchError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -49,6 +56,23 @@ function App() {
     console.log("register");
   };
 
+  const handleSearch = (query) => {
+    setIsLoading(true);
+    setIsSearched(true);
+    setSearchError(null);
+    api
+      .searchNews(query)
+      .then((data) => {
+        setArticles(data);
+      })
+      .catch((err) => {
+        setSearchError(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div className="page">
       <Header
@@ -60,7 +84,18 @@ function App() {
       />
       <div className="page__content">
         <Routes>
-          <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
+          <Route
+            path="/"
+            element={
+              <Main
+                isLoggedIn={isLoggedIn}
+                articles={articles}
+                handleSearch={handleSearch}
+                isSearched={isSearched}
+                isLoading={isLoading}
+              />
+            }
+          />
           <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
         <Footer />
