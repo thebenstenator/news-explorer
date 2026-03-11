@@ -3,8 +3,9 @@ import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./SavedNews.css";
 
-function SavedNews({ isLoggedIn }) {
+function SavedNews() {
   const { savedArticles } = useContext(SavedArticlesContext);
+
   return (
     <section className="saved-news">
       <div className="saved-news__header">
@@ -18,11 +19,7 @@ function SavedNews({ isLoggedIn }) {
         </p>
       </div>
       <div className="saved-news__articles">
-        <NewsCardList
-          isSavedPage={true}
-          articles={savedArticles}
-          isLoggedIn={isLoggedIn}
-        />
+        <NewsCardList isSavedPage={true} articles={savedArticles} />
       </div>
     </section>
   );

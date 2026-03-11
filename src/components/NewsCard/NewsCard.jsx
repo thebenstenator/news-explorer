@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn, isSavedPage }) {
+function NewsCard({ article, isSavedPage }) {
   const { savedArticles, handleDeleteArticle, handleSaveArticle } =
     useContext(SavedArticlesContext);
+
+  const { isLoggedIn } = useContext(CurrentUserContext);
 
   const isSaved = savedArticles.some((saved) => saved.url === article.url);
 

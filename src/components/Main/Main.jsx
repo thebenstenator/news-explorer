@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import About from "../About/About";
 import Hero from "../Hero/Hero";
 import NewsCardList from "../NewsCardList/NewsCardList";
@@ -5,7 +7,11 @@ import Preloader from "../Preloader/Preloader";
 import NoResults from "../NoResults/NoResults";
 import "./Main.css";
 
-function Main({ isLoggedIn, articles, isSearched, handleSearch, isLoading }) {
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
+function Main({ articles, isSearched, handleSearch, isLoading }) {
+  const { isLoggedIn } = useContext(CurrentUserContext);
+
   return (
     <main>
       <Hero handleSearch={handleSearch} />

@@ -1,7 +1,7 @@
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 
-function NewsCardList({ isLoggedIn, isSavedPage, articles }) {
+function NewsCardList({ isSavedPage, articles }) {
   return (
     <section
       className={`news-card-list ${isSavedPage ? "news-card-list_saved" : ""}`}
@@ -16,7 +16,6 @@ function NewsCardList({ isLoggedIn, isSavedPage, articles }) {
           <NewsCard
             key={article.url}
             article={article}
-            isLoggedIn={isLoggedIn}
             isSavedPage={isSavedPage}
           />
         ))}

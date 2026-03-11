@@ -1,13 +1,16 @@
 import { NavLink, Link } from "react-router-dom";
 import "./Navigation.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Navigation({
   handleSigninClick,
   handleMobileTap,
   activeModal,
-  isLoggedIn,
   handleLogout,
 }) {
+  const { isLoggedIn } = useContext(CurrentUserContext);
+
   return (
     <nav className="navigation">
       <Link className="navigation__logo" to="/">
