@@ -3,7 +3,7 @@ import { checkResponse } from "./apiHelpers";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://nomoreparties.co/news/v2/everything"
+    ? "https://nomoreparties.co/news/v2"
     : "https://newsapi.org/v2";
 
 export function searchNews(query) {

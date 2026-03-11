@@ -5,6 +5,10 @@
   z-index: 2;
 }
 
+.search-form__input_error::placeholder {
+  color: #ff0000;
+}
+
 .search-form__input {
   box-sizing: border-box;
   background-color: #fff;
