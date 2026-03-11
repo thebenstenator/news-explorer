@@ -109,6 +109,7 @@ function App() {
                     handleSearch={handleSearch}
                     isSearched={isSearched}
                     isLoading={isLoading}
+                    searchError={searchError}
                   />
                 }
               />

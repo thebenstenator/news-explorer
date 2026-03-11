@@ -9,19 +9,29 @@ import "./Main.css";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Main({ articles, isSearched, handleSearch, isLoading }) {
+function Main({ articles, isSearched, handleSearch, isLoading, searchError }) {
   const { isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <main>
       <Hero handleSearch={handleSearch} />
       {isLoading && <Preloader />}
-      {!isLoading && isSearched && articles.length === 0 && <NoResults />}
+      {!isLoading && searchError && (
+        <NoResults
+          title="Something went wrong"
+          message="Sorry, something went wrong during the request. Please try again later."
+        />
+      )}
+      {!isLoading && isSearched && !searchError && articles.length === 0 && (
+        <NoResults
+          title="Nothing found"
+          message="Sorry, but nothing matched your search terms."
+        />
+      )}
       {!isLoading && isSearched && articles.length > 0 && (
         <NewsCardList
           key={isLoggedIn}
           articles={articles}
-          isLoggedIn={isLoggedIn}
           isSavedPage={false}
         />
       )}
