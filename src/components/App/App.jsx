@@ -26,8 +26,12 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const [searchError, setSearchError] = useState(null);
-  const [savedArticles, setSavedArticles] = useState([]);
-  const [currentUser, setCurrentUser] = useState({ name: "Ben" });
+  const [savedArticles, setSavedArticles] = useState(() => {
+    const stored = localStorage.getItem("savedArticles");
+    return stored ? JSON.parse(stored) : [];
+  });
+  const [currentUser, setCurrentUser] = useState({ name: "" });
+  const [lastQuery, setLastQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -64,6 +68,7 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setCurrentUser({ name: "" });
     navigate("/");
   };
 
@@ -72,6 +77,7 @@ function App() {
   };
 
   const handleSearch = (query) => {
+    setLastQuery(query);
     setIsLoading(true);
     setIsSearched(true);
     setSearchError(null);
@@ -90,9 +96,11 @@ function App() {
 
   const handleSaveArticle = (article) => {
     api
-      .saveArticle(article)
+      .saveArticle({ ...article, keyword: lastQuery })
       .then((savedArticle) => {
-        setSavedArticles((prev) => [...prev, savedArticle]);
+        const updated = [...savedArticles, savedArticle];
+        setSavedArticles(updated);
+        localStorage.setItem("savedArticles", JSON.stringify(updated));
       })
       .catch((err) => {
         console.error("Save failed:", err);
@@ -103,9 +111,11 @@ function App() {
     api
       .deleteArticle(article._id)
       .then(() => {
-        setSavedArticles((prev) =>
-          prev.filter((saved) => saved.url !== article.url),
+        const updated = savedArticles.filter(
+          (saved) => saved.url !== article.url,
         );
+        setSavedArticles(updated);
+        localStorage.setItem("savedArticles", JSON.stringify(updated));
       })
       .catch((err) => {
         console.error("Delete failed:", err);

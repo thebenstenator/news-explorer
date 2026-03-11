@@ -9,7 +9,9 @@ function NewsCardList({ isSavedPage, articles }) {
     setVisibleCount((prev) => prev + 3);
   };
 
-  const visibleArticles = articles.slice(0, visibleCount);
+  const visibleArticles = isSavedPage
+    ? articles
+    : articles.slice(0, visibleCount);
 
   return (
     <section

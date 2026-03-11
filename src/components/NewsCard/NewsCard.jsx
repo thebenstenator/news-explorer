@@ -29,7 +29,10 @@ function NewsCard({ article, isSavedPage }) {
             type="button"
             onClick={() => handleDeleteArticle(article)}
           />
-          <div className="news-card__keyword">{article.keyword}</div>
+          <div className="news-card__keyword">
+            {article.keyword.charAt(0).toUpperCase() +
+              article.keyword.slice(1).toLowerCase()}
+          </div>
         </>
       ) : isLoggedIn ? (
         <button
