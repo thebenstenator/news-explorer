@@ -1,16 +1,39 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About the Project
 
-Currently, two official plugins are available:
+News Explorer is a front-end web application that allows users to search for news articles using the News API and save their favorite articles to a personal account. Built as the final capstone project for the TripleTen Software Engineering program.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
 
-## React Compiler
+[News Explorer](https://ben-news-explorer.netlify.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Search for news articles by keyword using the News API
+- View up to 100 results with "Show more" pagination
+- User authentication (sign up, sign in, sign out)
+- Save and delete articles to a personal collection
+- View saved articles on a dedicated page
+- Responsive design for desktop, tablet, and mobile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies
+
+- React
+- React Router
+- Vite
+- CSS / BEM methodology
+- News API
+- Netlify (deployment)
+
+## Running Locally
+
+1. Clone the repository
+2. Run `npm install`
+3. Create a `.env` file in the root with your News API key:
+   `VITE_NEWS_API_KEY=your_key_here`
+4. Run `npm run dev`
+
+## Author
+
+Ben Anderson — [GitHub](https://github.com/thebenstenator) · [LinkedIn](https://linkedin.com/in/benanderson5809)
