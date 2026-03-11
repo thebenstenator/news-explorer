@@ -20,3 +20,26 @@ export function searchNews(query) {
     .then(checkResponse)
     .then((data) => data.articles);
 }
+
+export function getItems() {
+  return new Promise((resolve) => resolve([]));
+}
+
+export function saveArticle(article) {
+  return new Promise((resolve) => {
+    resolve({
+      _id: "65f7371e7bce9e7d331b11a0",
+      url: article.url,
+      title: article.title,
+      urlToImage: article.urlToImage,
+      description: article.description,
+      publishedAt: article.publishedAt,
+      source: article.source,
+      keyword: article.keyword,
+    });
+  });
+}
+
+export function deleteArticle(articleId) {
+  return new Promise((resolve) => resolve({ message: "Article deleted" }));
+}

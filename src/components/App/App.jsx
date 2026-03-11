@@ -15,6 +15,7 @@ import "./App.css";
 
 // Utility imports
 import * as api from "../../utils/api";
+import * as auth from "../../utils/auth";
 import { SavedArticlesContext } from "../../contexts/SavedArticlesContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -46,9 +47,19 @@ function App() {
     setActiveModal(modalName);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    closeModal();
+  const handleLogin = (values, handleReset) => {
+    auth
+      .authorize({ email: values.email, password: values.password })
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        setIsLoggedIn(true);
+        setCurrentUser({ name: "Elise" });
+        closeModal();
+        handleReset();
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
   };
 
   const handleLogout = () => {
@@ -78,13 +89,27 @@ function App() {
   };
 
   const handleSaveArticle = (article) => {
-    setSavedArticles((prev) => [...prev, article]);
+    api
+      .saveArticle(article)
+      .then((savedArticle) => {
+        setSavedArticles((prev) => [...prev, savedArticle]);
+      })
+      .catch((err) => {
+        console.error("Save failed:", err);
+      });
   };
 
   const handleDeleteArticle = (article) => {
-    setSavedArticles((prev) =>
-      prev.filter((saved) => saved.url !== article.url),
-    );
+    api
+      .deleteArticle(article._id)
+      .then(() => {
+        setSavedArticles((prev) =>
+          prev.filter((saved) => saved.url !== article.url),
+        );
+      })
+      .catch((err) => {
+        console.error("Delete failed:", err);
+      });
   };
 
   return (
