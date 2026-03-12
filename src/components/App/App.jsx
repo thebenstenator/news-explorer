@@ -1,5 +1,5 @@
 // React Imports
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Component Imports
@@ -131,6 +131,22 @@ function App() {
         console.error("Delete failed:", err);
       });
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      auth
+        .checkToken(token)
+        .then((data) => {
+          setCurrentUser(data.data);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => {
+          console.error("Token check failed:", err);
+          localStorage.removeItem("jwt");
+        });
+    }
+  });
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
