@@ -29,7 +29,11 @@
   color: #1a1b22;
 }
 
-.header_saved .navigation__link {
+.header_saved .navigation__link:hover {
+  color: #1a1b22;
+}
+
+.header_saved .navigation__link_active {
   color: #1a1b22;
 }
 
