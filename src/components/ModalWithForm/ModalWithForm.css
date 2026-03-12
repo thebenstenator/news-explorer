@@ -29,7 +29,7 @@
 
 .modal__title {
   color: #1a1b22;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 1;
@@ -61,7 +61,7 @@
   height: 64px;
   border: none;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;
@@ -81,7 +81,7 @@
 
 .modal__redirect {
   margin: auto;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
@@ -99,7 +99,7 @@
 .modal__label {
   display: flex;
   flex-direction: column;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1;
@@ -117,7 +117,7 @@
 
 .modal__error {
   display: block;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1;

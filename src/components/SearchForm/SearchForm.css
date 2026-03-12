@@ -12,7 +12,7 @@
 .search-form__input {
   box-sizing: border-box;
   background-color: #fff;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
@@ -39,7 +39,7 @@
   background-color: #2f71e5;
   color: #fff;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;

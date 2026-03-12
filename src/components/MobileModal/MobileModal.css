@@ -31,7 +31,7 @@
 
 .modal__logo {
   text-decoration: none;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", Georgia, sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
@@ -40,7 +40,7 @@
 }
 
 .modal__home-btn {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 3.1;
@@ -56,7 +56,7 @@
   border: 1px solid #fff;
   color: #fff;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;
