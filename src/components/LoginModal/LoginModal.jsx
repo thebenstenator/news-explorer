@@ -24,7 +24,6 @@ function LoginModal({
     const valid = validateForm();
     if (!valid) return;
     handleLogin(values, handleReset);
-    console.log("login values:", values);
     handleCloseClick();
     handleReset();
   }

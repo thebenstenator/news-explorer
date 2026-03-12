@@ -111,8 +111,13 @@
 .modal__input {
   padding: 10px 0;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   background-color: transparent;
+}
+
+.modal__input:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .modal__error {

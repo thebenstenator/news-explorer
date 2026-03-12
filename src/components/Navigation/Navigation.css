@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.navigation__logo:focus-visible {
+  outline: 2px solid #fff;
+}
+
 .navigation__links {
   display: flex;
   align-items: center;
@@ -76,6 +80,10 @@
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
+}
+
+.navigation__sign-in_btn:focus-visible {
+  outline: 2px solid #fff;
 }
 
 .navigation__sign-out-btn {
