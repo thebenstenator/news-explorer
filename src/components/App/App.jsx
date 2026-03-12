@@ -146,7 +146,7 @@ function App() {
           localStorage.removeItem("jwt");
         });
     }
-  });
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
