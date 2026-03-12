@@ -1,0 +1,22 @@
+.modal__sign-in-link {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  border: none;
+  background-color: transparent;
+  color: #2f71e5;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.modal__content_type_confirmation {
+  padding: 43px 36px 51px;
+}
+
+.modal__title_type_confirmation {
+  margin-bottom: 14px;
+  color: #000000;
+  max-width: 315px;
+  line-height: 1.3;
+}
