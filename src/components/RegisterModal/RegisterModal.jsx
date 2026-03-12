@@ -23,9 +23,7 @@ function RegisterModal({
     evt.preventDefault();
     const valid = validateForm();
     if (!valid) return;
-    // handleRegister(values, handleReset);
-    handleModalSwitch("confirmation");
-    handleReset();
+    handleRegister(values, handleReset);
   }
 
   return (
@@ -51,6 +49,7 @@ function RegisterModal({
           onChange={handleChange}
           value={values.email}
           onBlur={handleBlur}
+          required
         />
         <span
           className={`modal__error ${errors.email ? "modal__error_visible" : ""}`}
@@ -69,6 +68,7 @@ function RegisterModal({
           onChange={handleChange}
           value={values.password}
           onBlur={handleBlur}
+          required
         />
         <span
           className={`modal__error ${errors.password ? "modal__error_visible" : ""}`}
@@ -87,6 +87,7 @@ function RegisterModal({
           onChange={handleChange}
           value={values.username}
           onBlur={handleBlur}
+          required
         />
         <span
           className={`modal__error ${errors.username ? "modal__error_visible" : ""}`}

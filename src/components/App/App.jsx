@@ -61,8 +61,8 @@ function App() {
         closeModal();
         handleReset();
       })
-      .catch((error) => {
-        console.error("Login failed:", error);
+      .catch((err) => {
+        console.error("Login failed:", err);
       });
   };
 
@@ -72,8 +72,18 @@ function App() {
     navigate("/");
   };
 
-  const handleRegister = () => {
-    console.log("register");
+  const handleRegister = (values, handleReset) => {
+    auth
+      .authorize(values.email, values.password)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        setCurrentUser({ name: values.username });
+        handleModalSwitch("confirmation");
+        handleReset();
+      })
+      .catch((err) => {
+        console.error("Registration failed:", err);
+      });
   };
 
   const handleSearch = (query) => {

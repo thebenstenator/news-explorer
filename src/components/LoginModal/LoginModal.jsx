@@ -52,7 +52,8 @@ function LoginModal({
           value={values.email || ""}
           onChange={handleChange}
           onBlur={handleBlur}
-        />{" "}
+          required
+        />
         <span
           className={`modal__error
             ${errors.email ? " modal__error_visible" : ""}`}
@@ -71,6 +72,7 @@ function LoginModal({
           value={values.password || ""}
           onChange={handleChange}
           onBlur={handleBlur}
+          required
         />
         <span
           className={`modal__error ${errors.password ? "modal__error_visible" : ""}`}
