@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
@@ -7,8 +8,11 @@ function Header({
   activeModal,
   handleLogout,
 }) {
+  const location = useLocation();
+  const isSavedPage = location.pathname === "/saved-news";
+
   return (
-    <header className="header">
+    <header className={`header ${isSavedPage ? "header_saved" : ""}`}>
       <div className="header__content">
         <Navigation
           handleSigninClick={handleSigninClick}
