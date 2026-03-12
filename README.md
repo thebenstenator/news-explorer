@@ -8,6 +8,10 @@ News Explorer is a front-end web application that allows users to search for new
 
 [News Explorer](https://ben-news-explorer.netlify.app/)
 
+## Project Pitch Video
+
+[Check it out here](https://drive.google.com/file/d/1ibOP4T6J-x6pRURXY5xMBc-8UUF0HlN9/view?usp=sharing)
+
 ## Features
 
 - Search for news articles by keyword using the News API
