@@ -67,8 +67,9 @@ function App() {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setCurrentUser({ name: "" });
+    setCurrentUser(null);
     navigate("/");
   };
 
