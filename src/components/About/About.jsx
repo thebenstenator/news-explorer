@@ -1,5 +1,5 @@
 import "./About.css";
-import photo from "../../assets/about-author.jpg";
+import photo from "../../assets/about-author.webp";
 
 function About() {
   return (
